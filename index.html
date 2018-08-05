@@ -1,0 +1,54 @@
+<html ng-app="porkin">
+<head>
+    <title>Porkin</title>
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <script src="https://use.fontawesome.com/73d877b2a9.js"></script>
+    <script src="libs/angular.js"></script>
+    <script src="libs/angular-messages.js"></script>
+    <script src="libs/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/porkinCtrl.js"></script>
+    <script src="js/services/accountAPIService.js"></script>
+    <script src="js/services/transactionAPIService.js"></script>
+    <script src="js/services/usersAPIService.js"></script>
+    <script src="js/value/configValue.js"></script>
+    <script src="js/configs/routeConfig.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Porkin - AngularJS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/ArthurBOliveira/Porkin-Api-Node">Source Code
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://medium.com/@ArthurBOliveira">Author
+                        <i class="fa fa-medium" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron" ng-controller="porkinCtrl">
+        <a href="#!users">Users</a>
+        <a href="#!accounts">Accounts</a>
+        <a href="#!transactions">Transactions</a>
+        <hr/>
+        <div ng-view></div>
+    </div>
+</body>
+
+</html>
