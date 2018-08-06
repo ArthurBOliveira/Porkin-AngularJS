@@ -12,7 +12,7 @@ angular.module("porkin").factory("accountsAPI", function ($http, config) {
 	};
 
 	var _deleteAccount = function (email, id) {
-		return $http.delete(config.baseUrl + "/accounts/" + email + "/", id);
+		return $http.delete(config.baseUrl + "/accounts/" + email + "/" + id);
 	};
 
 	return {

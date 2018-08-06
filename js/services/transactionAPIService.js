@@ -12,7 +12,7 @@ angular.module("porkin").factory("transactionsAPI", function ($http, config) {
 	};
 
 	var _deleteTransaction = function (email, accountId,  id) {
-		return $http.delete(config.baseUrl + "/transactions/" + email + "/" + accountId + "/", id);
+		return $http.delete(config.baseUrl + "/transactions/" + email + "/" + accountId + "/" + id);
 	};
 
 	return {

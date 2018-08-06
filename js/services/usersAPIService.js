@@ -16,7 +16,7 @@ angular.module("porkin").factory("usersAPI", function ($http, config) {
 	};
 
 	var _deleteUser = function (id) {
-		return $http.delete(config.baseUrl + "/users/", id);
+		return $http.delete(config.baseUrl + "/users/" + id);
 	};
 
 	return {

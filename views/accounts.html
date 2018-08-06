@@ -1,10 +1,12 @@
 <h1>Accounts</h1>
+<h3>Email: {{currEmail}}</h3>
 {{accountErrorMessage}}
 <table ng-show="accounts.length > 0" class="table table-striped">
     <tr>
         <th>Name</th>
         <th>Description</th>
         <th>Views</th>
+        <th>Delete</th>
     </tr>
     <tr ng-repeat="account in accounts">
         <td>{{account.name}}</td>
@@ -14,5 +16,18 @@
                 <i class="fa fa-eye" aria-hidden="true"></i>
             </button>
         </td>
+        <td>
+            <button class="btn btn-danger" ng-click="DeleteAccount(account)">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+        </td>
     </tr>
 </table>
+<hr>
+<form name="accountForm">
+    <input class="form-control" type="text" ng-model="account.name" name="name" placeholder="Name" ng-required="true" ng-minlength="3"/>
+    <input class="form-control" type="text" ng-model="account.description" name="description" placeholder="Description" ng-required="true"/>
+</form>
+<hr>
+<button class="btn btn-primary btn-block" ng-click="AddAccount(account)" ng-disabled="accountForm.$invalid">
+    Create Account</button>
