@@ -1,5 +1,5 @@
 angular.module("porkin").factory("transactionsAPI", function ($http, config) {
-	var _getTransaction = function (email, accountId) {
+	var _getTransactions = function (email, accountId) {
 		return $http.get(config.baseUrl + "/transactions/" + email + "/" + accountId);
 	};
 
@@ -16,7 +16,7 @@ angular.module("porkin").factory("transactionsAPI", function ($http, config) {
 	};
 
 	return {
-		getTransaction: _getTransaction,
+		getTransactions: _getTransactions,
 		postTransaction: _postTransaction,
 		putTransaction: _putTransaction,
 		deleteTransaction: _deleteTransaction

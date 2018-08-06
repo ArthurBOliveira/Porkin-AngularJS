@@ -1,1 +1,14 @@
 <h1>Transactions</h1>
+{{transactionsErrorMessage}}
+<table ng-show="transactions.length > 0" class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Value</th>
+    </tr>
+    <tr ng-repeat="transaction in transactions">
+        <td>{{transaction.name}}</td>
+        <td>{{transaction.type}}</td>
+        <td>{{transaction.value}}</td>
+    </tr>
+</table>

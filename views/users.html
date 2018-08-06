@@ -1,1 +1,27 @@
 <h1>Users</h1>
+{{usersErrorMessage}}
+<table ng-show="users.length > 0" class="table table-striped">
+    <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Views</th>
+    </tr>
+    <tr ng-repeat="user in users">
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>
+            <button class="btn btn-primary" ng-click="ListAccounts(user)">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+</table>
+<hr>
+<form name="userForm">
+    <input class="form-control" type="text" ng-model="user.email" name="email" placeholder="Email" ng-required="true" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
+    />
+    <input class="form-control" type="text" ng-model="user.password" name="password" placeholder="Password" ng-required="true"
+    ng-minlength="6"/>
+</form>
+<hr>
+<button class="btn btn-primary btn-block" ng-click="AddUser(user)" ng-disabled="userForm.$invalid">Create User</button>
