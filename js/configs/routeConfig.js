@@ -6,10 +6,10 @@ angular.module("porkin").config(function($routeProvider) {
     .when("/users", {
       templateUrl: "views/users.html"
     })
-    .when("/accounts", {
-      templateUrl: "views/accounts.html"
+    .when("/userdetails/:email", {
+      templateUrl: "views/userDetails.html"
     })
-    .when("/transactions", {
-      templateUrl: "views/transactions.html"
+    .when("/accounts/:email", {
+      templateUrl: "views/accounts.html"
     });
 });

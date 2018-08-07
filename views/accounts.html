@@ -1,33 +1,44 @@
-<h1>Accounts</h1>
-<h3>Email: {{currEmail}}</h3>
-{{accountErrorMessage}}
-<table ng-show="accounts.length > 0" class="table table-striped">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Views</th>
-        <th>Delete</th>
-    </tr>
-    <tr ng-repeat="account in accounts">
-        <td>{{account.name}}</td>
-        <td>{{account.description}}</td>
-        <td>
-            <button class="btn btn-primary" ng-click="ListTransactions(account)">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-            </button>
-        </td>
-        <td>
-            <button class="btn btn-danger" ng-click="DeleteAccount(account)">
-                <i class="fa fa-times-circle" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-</table>
-<hr>
-<form name="accountForm">
-    <input class="form-control" type="text" ng-model="account.name" name="name" placeholder="Name" ng-required="true" ng-minlength="3"/>
-    <input class="form-control" type="text" ng-model="account.description" name="description" placeholder="Description" ng-required="true"/>
-</form>
-<hr>
-<button class="btn btn-primary btn-block" ng-click="AddAccount(account)" ng-disabled="accountForm.$invalid">
-    Create Account</button>
+<div ng-controller="accountCtrl">
+    <div style="text-align: left;">
+        <a href="/">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </a>
+    </div>
+    <h1>Accounts</h1>
+    <h3>Email: {{currEmail}}</h3>
+    {{accountErrorMessage}}
+    <div ng-show="accounts.length === 0 && accountErrorMessage !== 'No Account on User!'">
+        Loading...
+    </div>
+    <table ng-show="accounts.length > 0" class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="account in accounts">
+            <td>{{account.name}}</td>
+            <td>{{account.description}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="DeleteAccount(account)">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <form name="accountForm">
+        <input class="form-control" type="text" ng-model="account.name" name="name" placeholder="Name" ng-required="true" ng-minlength="3" />
+        <div ng-show="accountForm.name.$dirty" ng-messages="accountForm.name.$error">
+            <p class="alert alert-danger" ng-message="minlength">Minimun 3 characters</p>
+        </div>
+
+        <input class="form-control" type="text" ng-model="account.description" name="description" placeholder="Description" ng-required="true" ng-minlength="5"/>
+        <div ng-show="accountForm.description.$dirty" ng-messages="accountForm.description.$error">
+            <p class="alert alert-danger" ng-message="minlength">Minimun 5 characters</p>
+        </div>
+    </form>
+    <hr>
+    <button class="btn btn-primary btn-block" ng-click="AddAccount(account)" ng-disabled="accountForm.$invalid">
+        Create Account</button>
+</div>
